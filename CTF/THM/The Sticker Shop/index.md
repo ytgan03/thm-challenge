@@ -9,7 +9,7 @@ First and foremost, we need to use nmap scan to discover the open ports. In this
 
 
 ## Web App
-THM prompts us to read the content in `http://10.10.12.79:8080/flag.txt`. Try typing it in the address bar. As you can see, the `401 Unauthorized` message is shown on the screen.
+This room prompts us to read the content in `http://10.10.12.79:8080/flag.txt`. Try typing it in the address bar. As you can see, the `401 Unauthorized` message is shown on the screen.
 
 ![Flag.txt page](images/image-2.png)
 
