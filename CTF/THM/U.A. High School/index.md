@@ -37,18 +37,18 @@ curl http://MACHINE_IP/assets/index.php?cmd=ls | base64 -d
 
 ## Gaining a Reverse Shell
 With command execution confirmed. I proceeded to gain a reverse shell:
-1. Generated a reverse shell payload using `revshells.com`
+1. Generated a reverse shell payload using `revshells.com`<br>
     ![Reverse shell payload](images/image-6.png)
 2. Set up a Netcat listener: `nc -lvnp 4444`<br>
     ![Netcat listener](images/image-7.png)
-3. Once connected, I upgraded the shell for stability:
+3. Once connected, I upgraded the shell for stability:<br>
     ![Stabilise the shell](images/image-9.png)
 4. Executed the reverse shell by appending the payload to the vulnerable URL.
     ![Append the payload](images/image-8.png)
 
 ## Privilege Escalation
 At this point, I had access as the www-data user. To escalate privileges:
-1. Explored directories and found a corrupt JPG file.
+1. Explored directories and found a corrupt JPG file.<br>
     ![Corrupted JPG file](images/image-10.png)
 2. Downloaded the file using `wget` and identify the file type using `MagicBytes`. 
     ![File downloads and identification](images/image-11.png)
