@@ -110,5 +110,5 @@ Try to look at the logs related to Tyler by using `grep -iR tyler`. We can see t
 
 Try to use the credentials to log on to his accoutn. This user is allowed to run any root command using sudo. Try `sudo su` to change into root. Head to the root directory and we can find the flag there. 
 
-![Retrieved root flag](images/image-26.png)
+![Retrieved root flag](images/image-27.png)
 
