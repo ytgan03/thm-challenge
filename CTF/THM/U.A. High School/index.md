@@ -38,31 +38,30 @@ curl http://MACHINE_IP/assets/index.php?cmd=ls | base64 -d
 ## Gaining a Reverse Shell
 With command execution confirmed. I proceeded to gain a reverse shell:
 1. Generated a reverse shell payload using `revshells.com`
-![Reverse shell payload](images/image-6.png)
-2. Set up a Netcat listener:
-    `nc -lvnp 4444`
+    ![Reverse shell payload](images/image-6.png)
+2. Set up a Netcat listener: `nc -lvnp 4444`<br>
     ![Netcat listener](images/image-7.png)
 3. Once connected, I upgraded the shell for stability:
-![Stabilise the shell](images/image-9.png)
+    ![Stabilise the shell](images/image-9.png)
 4. Executed the reverse shell by appending the payload to the vulnerable URL.
-![Append the payload](images/image-8.png)
+    ![Append the payload](images/image-8.png)
 
 ## Privilege Escalation
 At this point, I had access as the www-data user. To escalate privileges:
 1. Explored directories and found a corrupt JPG file.
-![Corrupted JPG file](images/image-10.png)
+    ![Corrupted JPG file](images/image-10.png)
 2. Downloaded the file using `wget` and identify the file type using `MagicBytes`. 
-![File downloads and identification](images/image-11.png)
+    ![File downloads and identification](images/image-11.png)
 3. The file revealed an image of Deku which hinted at Steganography.
-![Image reveal](images/image-12.png)
+    ![Image reveal](images/image-12.png)
 4. Use `Steghide` to check for hidden data within the image, but it required a password. 
-![Hidden data decryption](images/image-13.png)
+    ![Hidden data decryption](images/image-13.png)
 5. Searched directories thoroughly and found `Hidden_Content/passphrase.txt`, which contained a Base64-encoded password.
-![Credentials harvesting](images/image-14.png)
-![Credentials harvesting](images/image-15.png)
+    ![Credentials harvesting](images/image-14.png)
+    ![Credentials harvesting](images/image-15.png)
 6. Decoded the password and used it to extract a hidden text file from the image, revealing Deku’s credentials. 
-![Password decryption](images/image-16.png)
-![Credentials disclosure](images/image-17.png)
+    ![Password decryption](images/image-16.png)
+    ![Credentials disclosure](images/image-17.png)
 
 ## Root Privilege Escalation
 With Deku’s credentials, I logged in and found `user.txt`.
